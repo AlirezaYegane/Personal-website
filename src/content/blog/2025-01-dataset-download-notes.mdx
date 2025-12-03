@@ -1,0 +1,95 @@
+---
+title: "Notes on Large-Scale Dataset Downloads"
+slug: "dataset-download-notes"
+summary: "Practical tips and lessons learned from downloading and managing large medical datasets."
+tags: ["data engineering", "datasets", "best practices"]
+date: "2025-01-15"
+author: "Your Name"
+---
+
+# Notes on Large-Scale Dataset Downloads
+
+## The Challenge
+
+Working with medical datasets often means downloading hundreds of gigabytes (sometimes terabytes) of data. This process is fraught with challenges:
+
+- **Network interruptions** causing failed downloads
+- **Storage constraints** on local machines
+- **Inconsistent formats** across data sources
+- **Verification** that data downloaded correctly
+
+## Lessons Learned
+
+### 1. Always Use Resume-Capable Tools
+
+Never rely on basic `wget` without the `-c` flag or browser downloads for large files.
+
+**Recommended tools**:
+```bash
+# With resume capability
+wget -c --retry-connrefused --waitretry=1 --timeout=20 URL
+
+# Or use aria2c for parallel downloads
+aria2c -x 16 -s 16 URL
+```
+
+### 2. Verify Integrity
+
+Always check MD5/SHA checksums when provided:
+
+```bash
+md5sum -c checksums.md5
+```
+
+### 3. Stream Processing When Possible
+
+Don't download everything first if you can stream and process:
+
+```python
+import pandas as pd
+
+# Stream large CSV files
+for chunk in pd.read_csv('large_file.csv', chunksize=10000):
+    process(chunk)
+```
+
+### 4. Use Cloud Storage
+
+For truly massive datasets, cloud storage is your friend:
+- AWS S3 with CLI tools
+- GCP Cloud Storage
+- Azure Blob Storage
+
+Transfer directly between cloud services instead of routing through your machine.
+
+### 5. Document Everything
+
+Keep a log of:
+- Source URLs
+- Download dates
+- File sizes and checksums
+- Any preprocessing steps
+
+## Example Workflow
+
+Here's my typical workflow for a new dataset:
+
+1. **Research**: Understand the data structure and size
+2. **Plan**: Allocate cloud storage if needed
+3. **Download**: Use robust tools with retry logic
+4. **Verify**: Check integrity with checksums
+5. **Catalog**: Document metadata in a JSON/YAML file
+6. **Process**: Clean and transform as needed
+
+## Tools I Use
+
+- `aria2c` for parallel downloads
+- `rclone` for cloud sync
+- `DVC` for version control of data
+- Custom Python scripts for verification
+
+---
+
+> **Pro tip**: Always test your entire pipeline on a small subset before committing to downloading the full dataset.
+
+These practices have saved me countless hours of frustration and prevented data corruption issues.
