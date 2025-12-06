@@ -50,7 +50,7 @@ export default function AboutPage() {
                             Values & Principles
                         </h2>
                         <ul className="list-disc list-inside space-y-2 text-gray-600 dark:text-gray-400">
-                            <li><strong>Curiosity First:</strong> Always asking "why" and "how".</li>
+                            <li><strong>Curiosity First:</strong> Always asking &quot;why&quot; and &quot;how&quot;.</li>
                             <li><strong>Simplicity:</strong> Building systems that are easy to understand and maintain.</li>
                             <li><strong>Impact:</strong> Focusing on work that makes a tangible difference.</li>
                             <li><strong>Continuous Learning:</strong> The field is always changing, and so must we.</li>
@@ -64,7 +64,7 @@ export default function AboutPage() {
                         </h2>
                         <div className="prose prose-gray dark:prose-invert max-w-none">
                             <p>
-                                When I'm not coding or reading papers, you can find me [Insert Hobbies Here, e.g., hiking, playing chess, or exploring new coffee shops].
+                                When I&apos;m not coding or reading papers, you can find me [Insert Hobbies Here, e.g., hiking, playing chess, or exploring new coffee shops].
                                 I believe that a balanced life fuels creativity and prevents burnout.
                             </p>
                         </div>

@@ -10,6 +10,8 @@
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,css,md}\""
   },
   "dependencies": {
+    "@prisma/adapter-better-sqlite3": "^7.1.0",
+    "better-sqlite3": "^12.5.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.25",
     "gray-matter": "^4.0.3",
@@ -21,6 +23,7 @@
     "tailwind-merge": "^3.4.0"
   },
   "devDependencies": {
+    "@prisma/client": "^5.22.0",
     "@types/mdx": "^2.0.13",
     "@types/node": "^20.0.0",
     "@types/react": "^18.3.0",
@@ -33,6 +36,7 @@
     "postcss": "^8.4.0",
     "prettier": "^3.2.0",
     "prettier-plugin-tailwindcss": "^0.5.0",
+    "prisma": "^5.22.0",
     "tailwindcss": "^3.4.0",
     "typescript": "^5.4.0"
   }

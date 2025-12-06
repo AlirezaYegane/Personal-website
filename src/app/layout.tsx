@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 
+import { AnalyticsProvider } from "@/components/AnalyticsProvider";
 import { MainNav } from "@/components/layout/MainNav";
+import { getDefaultMetadata } from "@/lib/seo";
 
 import "@/styles/globals.css";
 
-export const metadata: Metadata = {
-    title: "Personal Webpage",
-    description: "A modern personal webpage built with Next.js 14",
-};
+export const metadata: Metadata = getDefaultMetadata();
 
 export default function RootLayout({
     children,
@@ -17,10 +16,10 @@ export default function RootLayout({
     return (
         <html lang="en">
             <body>
-                <MainNav />
-                <main className="min-h-screen">
-                    {children}
-                </main>
+                <AnalyticsProvider>
+                    <MainNav />
+                    <main className="min-h-screen">{children}</main>
+                </AnalyticsProvider>
             </body>
         </html>
     );

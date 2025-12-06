@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
-import { MdxContent } from "@/components/MdxContent";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Section } from "@/components/layout/Section";
 import { Shell } from "@/components/layout/Shell";
+import { MdxContent } from "@/components/MdxContent";
 import { getAllPosts, getPostBySlug } from "@/lib/mdx";
 
 interface BlogPostPageProps {

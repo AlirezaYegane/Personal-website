@@ -1,8 +1,7 @@
-import { getNarrativeBlocks } from "@/lib/mdx";
 import { MdxContent } from "@/components/MdxContent";
 import { NarrativeSection } from "@/components/narrative/NarrativeSection";
 import { Timeline } from "@/components/narrative/Timeline";
-
+import { getNarrativeBlocks } from "@/lib/mdx";
 
 export const metadata = {
     title: "Narrative | My Story",
