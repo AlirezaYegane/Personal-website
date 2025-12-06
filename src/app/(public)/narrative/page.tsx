@@ -1,5 +1,5 @@
 import { MdxContent } from "@/components/MdxContent";
-import { NarrativeSection } from "@/components/narrative/NarrativeSection";
+import { LazyNarrativeSection as NarrativeSection } from "@/components/narrative/LazyNarrativeSection";
 import { Timeline } from "@/components/narrative/Timeline";
 import { getNarrativeBlocks } from "@/lib/mdx";
 
